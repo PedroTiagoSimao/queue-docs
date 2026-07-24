@@ -8,8 +8,8 @@
     "dark": "#101010"
   },
   "favicon": {
-    "light": "/images/icon-white.svg",
-    "dark": "/images/icon.svg"
+    "light": "/images/icon.svg",
+    "dark": "/images/icon-white.svg"
   },
   "navigation": {
     "tabs": [
@@ -80,8 +80,8 @@
   },
   "description": "Documentação para o QUEUE - Gestão de Reparações",
   "logo": {
-    "light": "/images/logo-white.png",
-    "dark": "/images/logo.png"
+    "light": "/images/logo.png",
+    "dark": "/images/logo-white.png"
   },
   "background": {
     "color": {
