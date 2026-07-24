@@ -1,0 +1,140 @@
+---
+title: "How to Connect Integrations in the Google App"
+sidebarTitle: "Connect"
+description: "Step-by-step instructions to connect the Google app with calendars, Slack, Google Drive, Zapier, email, and other popular tools."
+---
+
+Connecting an integration takes just a few steps. This guide walks you through the setup for each supported integration category.
+
+## General connection steps
+
+For most integrations, the process is the same:
+
+<Steps>
+  <Step title="Open Integration Settings">
+    Go to **Settings → Integrations** and find the integration you want to connect.
+  </Step>
+  <Step title="Click Connect">
+    Click the **Connect** button next to the integration name.
+  </Step>
+  <Step title="Authorize access">
+    You'll be redirected to the external service to log in and grant permissions. Review the requested permissions and click **Allow** or **Authorize**.
+  </Step>
+  <Step title="Configure the integration">
+    Once connected, configure which projects or items the integration applies to (if applicable).
+  </Step>
+  <Step title="Test the connection">
+    Perform a quick test — for example, create an item and check that it appears in your connected calendar or sends a Slack notification.
+  </Step>
+</Steps>
+
+---
+
+## Calendar
+
+Sync items with due dates to your calendar of choice.
+
+**Supported:** Google Calendar, Outlook Calendar, Apple Calendar (via .ics feed)
+
+**What it does:**
+- Items with due dates appear as calendar events
+- Changes to due dates in the app update the calendar event automatically
+- New events you create in your calendar can optionally create items in the app
+
+**To connect:** Go to **Settings → Integrations → Calendar**, click **Connect**, and authorize the calendar service.
+
+---
+
+## Communication
+
+Receive app notifications in your team's chat platform.
+
+**Supported:** Slack, Microsoft Teams, Discord
+
+**What it does:**
+- Posts notifications to a designated channel when items are created, updated, or completed
+- Sends mention alerts when you're `@mentioned` in a comment
+- Optionally posts a daily digest summary
+
+**To connect:**
+1. Go to **Settings → Integrations → Slack** (or Teams/Discord).
+2. Click **Connect to Slack**.
+3. Select the workspace and channel to post to.
+4. Click **Allow**.
+
+---
+
+## File Storage
+
+Attach files from cloud storage directly to items.
+
+**Supported:** Google Drive, Dropbox, OneDrive, Box
+
+**What it does:**
+- Browse and attach files from your cloud storage when editing an item
+- Attached links stay up to date — edits in Google Drive/Dropbox are reflected automatically
+- Avoids uploading duplicate files
+
+**To connect:** Go to **Settings → Integrations → File Storage**, choose your provider, and authorize access.
+
+---
+
+## Email
+
+Create items from emails and receive summaries in your inbox.
+
+**What it does:**
+- Forward an email to your unique inbox address to automatically create an item
+- Receive daily or weekly email digests of your open items
+- Optionally receive email notifications for @mentions and status changes
+
+**To find your inbox address:** Go to **Settings → Integrations → Email** and copy your unique forwarding address.
+
+---
+
+## Automation (Zapier / Make)
+
+Connect the app to thousands of other tools using automation platforms.
+
+**Supported:** Zapier, Make (formerly Integromat)
+
+**What it does:**
+- Trigger actions in other apps when items are created, updated, or completed
+- Create items automatically from events in other apps (e.g., a new row in a spreadsheet)
+- Build multi-step workflows without writing code
+
+**To connect:**
+1. Log in to your Zapier or Make account.
+2. Search for the app in the integrations directory.
+3. Follow the prompts to connect using your API key (found in **Settings → API**).
+
+---
+
+## Developer API
+
+If you need a custom integration, you can use the REST API to read and write data programmatically.
+
+**To get your API key:**
+1. Go to **Settings → API**.
+2. Click **Generate API Key**.
+3. Copy the key and store it securely.
+
+<Warning>Never share your API key publicly or commit it to source control. Treat it like a password.</Warning>
+
+Send requests with your API key in the `Authorization` header:
+
+```http
+Authorization: Bearer YOUR_API_KEY
+```
+
+For full API documentation, contact your account team or visit the developer portal linked in **Settings → API**.
+
+## Disconnecting an integration
+
+To disconnect any integration:
+
+1. Go to **Settings → Integrations**.
+2. Click **Disconnect** next to the integration.
+3. Confirm the action.
+
+Disconnecting removes the app's access but does not delete any data already synced.
