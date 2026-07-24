@@ -4,53 +4,624 @@ sidebarTitle: "Visão Geral"
 description: "Compreenda como a aplicação está estruturada — como as suas funcionalidades se interligam e como está organizada para apoiar o seu fluxo de trabalho diário."
 ---
 
-Before diving into features, it helps to understand how the app is structured. This overview explains the core building blocks of the Google app and how they work together to support your day-to-day work.
+## 1. Visao geral da app
 
-## The core model
+O QUEUE esta organizado em modulos:
 
-The app is organized around a simple hierarchy:
+- `Painel`: visao geral das reparacoes em curso.
+- `Clientes`: base de dados de clientes.
+- `Reparacoes`: processos tecnicos, estados, procedimentos, anexos e comunicacao.
+- `Orcamentos`: orcamentos ligados a reparacoes.
+- `Inventario`: catalogo de modelos e servicos pre-definidos.
+- `Agendamentos`: calendario de reparacoes agendadas.
+- `Perfil`: conta, empresa, termos, utilizadores extra, PWA e subscricao.
 
-- **Workspace** — Your top-level environment. Everything you do lives inside your workspace.
-- **Projects** — Collections of related work items, tasks, or content within a workspace.
-- **Items** — The individual units of work: tasks, entries, records, or whatever applies to your use case.
-- **Members** — The people with access to your workspace and projects.
+Alguns modulos e acoes so aparecem se o plano da empresa os permitir.
 
-Every feature in the app connects back to this model. When you create something, it belongs to a project. When you share something, you're giving workspace members access to it.
+## 2. Primeiro acesso e ativacao da conta
 
-## How the app is organized
+### Trial inicial
 
-The interface is divided into three main areas:
+1. Aceda a `/signup`.
+2. Introduza:
+   - nome da empresa
+   - NIF
+   - nome do responsavel
+   - email do responsavel
+3. Aceite os termos e condicoes da plataforma.
+4. Recebera um codigo por email.
+5. Na pagina de verificacao, introduza o codigo e defina a password.
+6. A conta entra em trial de 10 dias, sem cartao na fase inicial.
 
-| Area | Purpose |
-| --- | --- |
-| **Sidebar** | Navigate between projects, settings, and sections |
-| **Main panel** | View and interact with items, lists, and dashboards |
-| **Top bar** | Search, notifications, and account access |
+### Iniciar sessao
 
-## How features fit together
+1. Entre em `/login`.
+2. Use o email e a password definidos.
+3. A app abre no painel principal.
 
-<CardGroup cols={2}>
-  <Card title="Tasks & Items" icon="list-check" href="/guides/common-tasks">
-    The core of your work — create, assign, and track items.
-  </Card>
+## 3. Instalar a app como PWA
 
-  <Card title="Notifications" icon="bell" href="/guides/notifications">
-    Stay informed about changes and updates in real time.
-  </Card>
+A app pode ser instalada como aplicacao.
 
-  <Card title="Integrations" icon="plug" href="/integrations/overview">
-    Connect external tools to extend the app's capabilities.
-  </Card>
+1. Va a `Perfil`.
+2. Na secao `Instalar aplicacao`, clique em `Instalar aplicacao`.
+3. Confirme o pedido do navegador.
 
-  <Card title="Settings" icon="gear" href="/guides/settings">
-    Control how the app looks and behaves for you.
-  </Card>
-</CardGroup>
+Notas:
 
-## Data and privacy
+- O botao so e util quando o browser disponibiliza o pedido de instalacao.
+- Depois de instalada, a app pode abrir em modo standalone, como app nativa.
 
-Your data is stored securely and is only accessible to you and the workspace members you invite. You can export your data at any time from **Settings → Data & Privacy**.
+## 4. Como configurar a empresa
 
-<Note>
-  For details on how your data is handled, refer to the app's Privacy Policy linked in the footer.
-</Note>
+Tudo isto e gerido em `Perfil`, na secao `Empresa`.
+
+### Dados da empresa
+
+1. Abra `Perfil`.
+2. Na secao `Empresa`, preencha ou atualize:
+   - nome
+   - NIF
+   - telefone
+   - email
+   - morada
+   - codigo postal
+   - localidade
+3. Clique em `Guardar`.
+
+### Logo
+
+1. Na mesma secao, escolha um ficheiro de imagem.
+2. Clique em `Enviar logo`.
+
+O logo e usado na apresentacao da empresa e nos documentos gerados.
+
+## 5. Termos e condicoes
+
+Existem dois tipos de termos no fluxo atual.
+
+### Termos da plataforma
+
+- Sao aceites no registo inicial da empresa.
+- Regulam o uso do QUEUE enquanto software.
+
+### Termos da empresa para reparacoes
+
+Sao configurados em `Perfil > Termos e condicoes`.
+
+1. O administrador escreve os termos no editor.
+2. Pode rever a pre-visualizacao antes de gravar.
+3. Clica em `Guardar termos`.
+
+Estes termos:
+
+- aparecem na pagina publica da reparacao
+- entram nos PDFs da reparacao
+- podem ser assinados pelo cliente
+
+Quando o cliente assina os termos na pagina publica, a assinatura fica guardada na reparacao. Se existir o estado `para-intervencao`, a app tambem move automaticamente a reparacao para esse estado.
+
+## 6. Utilizadores extra
+
+Geridos em `Perfil > Utilizadores`, apenas por administradores.
+
+### Criar utilizador
+
+1. Preencha nome, email e password.
+2. Ative `Dar permissoes de administrador` se necessario.
+3. Clique em `Criar utilizador`.
+
+### Editar utilizador
+
+Na tabela de utilizadores e possivel:
+
+- editar permissoes
+- redefinir password
+- apagar utilizador
+
+### Limite de utilizadores
+
+- O plano define quantos utilizadores extra podem existir.
+- A app mostra o consumo atual, por exemplo `X / Y utilizadores extra usados`.
+- O primeiro utilizador da empresa nao conta como utilizador extra; o limite aplica-se aos adicionais.
+
+## 7. Subscricoes disponiveis e como ativar
+
+Na pagina `Perfil > Gerir subscricao` ou diretamente em `/billing`, a app mostra:
+
+- plano atual
+- estado da subscricao
+- ultimo pagamento
+- proximo pagamento
+- ultimo evento de cobranca
+
+### Planos apresentados na UI
+
+#### Starter
+
+- 1 utilizador extra
+- etiquetas
+- documentos PDF
+- branding
+- suporte tecnico
+
+#### Base
+
+- ate 5 utilizadores extra
+- etiquetas
+- documentos PDF
+- branding
+- envio de email integrado
+- gestao de anexos
+- servicos pre-definidos
+- suporte tecnico
+
+#### Pro
+
+- ate 5 utilizadores extra
+- etiquetas
+- documentos PDF
+- branding
+- envio de email integrado
+- gestao de anexos
+- servicos pre-definidos
+- agendamento
+- integracao com faturacao
+- envio de SMS/WhatsApp
+- formacao
+- suporte prioritario
+
+### Como ativar um plano
+
+1. Entre em `Billing`.
+2. Escolha o plano pretendido.
+3. Clique em `Ativar plano` ou `Continuar para pagamento`.
+4. Conclua o checkout Stripe.
+5. Depois da confirmacao da Stripe, o plano fica ativo.
+
+Notas importantes:
+
+- Durante o trial, pode antecipar a subscricao a qualquer momento.
+- Se o trial expirar, a app pode bloquear acesso ate existir plano ativo.
+- Se a empresa tiver acesso vitalicio/manual, a pagina de billing fica apenas informativa e sem selecao de planos.
+
+## 8. O que aparece ou nao consoante o plano
+
+A app ativa ou esconde funcionalidades consoante a subscricao:
+
+- `Etiquetas`
+- `PDF`
+- `Portal do cliente`
+- `Email`
+- `Anexos`
+- `WhatsApp`
+- `Inventario`
+- `Agendamentos`
+
+Na pratica, isto afeta o menu lateral e tambem botoes dentro das paginas.
+
+## 9. Painel principal
+
+O `Painel` mostra:
+
+- nome e logo da empresa
+- lista de reparacoes nao agendadas
+- filtros por pesquisa, estado e garantia
+- ordenacao
+
+Por defeito, as reparacoes terminadas ficam fora da vista principal quando nao ha filtro manual.
+
+## 10. Clientes
+
+Antes de criar uma reparacao, normalmente convem criar o cliente.
+
+### Criar cliente
+
+1. Va a `Clientes`.
+2. Clique em `Adicionar cliente`.
+3. Preencha:
+   - nome
+   - email
+   - telefone
+   - NIF
+   - morada
+   - codigo postal
+   - localidade
+4. Grave o cliente.
+
+Tambem e possivel criar cliente rapidamente a partir do formulario de nova reparacao.
+
+## 11. Criar uma reparacao
+
+Pagina: `Reparacoes > Nova reparacao`.
+
+### Passo a passo base
+
+1. Escolha o cliente.
+2. Defina o estado inicial.
+3. Indique o equipamento.
+4. Indique o servico.
+5. Preencha serial/IMEI, se existir.
+6. Preencha codigo/senha, se aplicavel.
+7. Escolha o estado de garantia.
+8. Adicione acessorios.
+9. Descreva o problema.
+10. Adicione anexos, se necessario.
+11. Grave a reparacao.
+
+### O que a app ajuda automaticamente
+
+#### Sugestoes por inventario
+
+Se o inventario estiver ativo:
+
+- o campo `Equipamento` sugere modelos existentes
+- o campo `Servico` sugere servicos ligados ao modelo escolhido
+
+#### Historico por serial / IMEI
+
+Ao escrever um serial ou IMEI ja usado antes, a app mostra um popup com:
+
+- reparacoes anteriores
+- cliente
+- data
+- servico
+- equipamento
+
+Isto ajuda a evitar duplicados e a perceber historico tecnico.
+
+#### Orcamento automatico
+
+Se selecionar um modelo \+ servico que tenham um preco associado no inventario:
+
+- a app pode propor a criacao automatica de um orcamento
+- se existir email valido do cliente e o plano permitir email, pode criar e enviar o orcamento automaticamente
+- se estiver a criar uma reparacao agendada, o orcamento pode ser criado mas ficar por enviar ate a reparacao sair do agendamento
+
+#### Avisos tecnicos pre-definidos
+
+Se a ligacao entre servico e modelo tiver `flag notes`, a app mostra essa nota em destaque durante a criacao da reparacao.
+
+Isto e util para alertas como:
+
+- riscos tecnicos
+- dependencias
+- observacoes obrigatorias
+- restricoes do modelo
+
+### Anexos na criacao
+
+- Pode anexar ficheiros logo ao criar a reparacao.
+- As imagens podem ser comprimidas.
+- O limite total por envio e `2 MB`.
+
+## 12. Estados manuais e automaticos da reparacao
+
+### Estados manuais
+
+O estado da reparacao e alterado diretamente no detalhe da reparacao.
+
+Exemplos tipicos:
+
+- rececao
+- diagnostico
+- para intervencao
+- pronto
+- terminado
+
+### Comportamentos automaticos relevantes
+
+#### Quando muda para `Pronto`
+
+- a reparacao fica guardada com o novo estado
+- se houver email do cliente e o plano permitir email, a app abre o composer para avisar o cliente
+- se o email for enviado, fica tambem um procedimento registado a dizer que o cliente foi informado
+
+#### Quando muda para `Terminado`
+
+A app nao deixa concluir sem:
+
+- numero da fatura
+- data de entrega
+
+Ao escolher `Terminado`, abre um modal para preencher estes dados.
+
+#### Quando o cliente assina os termos
+
+Na pagina publica:
+
+- a assinatura fica guardada
+- a reparacao pode transitar automaticamente para `para-intervencao`, se esse estado existir
+
+#### Quando um orcamento e aceite publicamente
+
+- o orcamento aceite fica marcado
+- outros orcamentos da mesma reparacao podem ser rejeitados automaticamente
+- e criado um procedimento a registar a aceitacao
+- a reparacao pode mudar de estado se o estado de orcamento aceite tiver um estado de reparacao relacionado
+
+## 13. Pagina de detalhe da reparacao
+
+Esta e a pagina central da operacao.
+
+### O que pode fazer aqui
+
+- editar dados da reparacao
+- alterar estado e garantia
+- ver QR code
+- imprimir etiqueta
+- imprimir PDF da reparacao
+- imprimir PDF de procedimentos
+- gerar ou abrir link publico
+- enviar email ao cliente
+- gerir procedimentos
+- gerir anexos
+- consultar historico de emails
+- apagar a reparacao
+
+### Etiquetas e QR code
+
+Se o plano permitir:
+
+- pode imprimir uma etiqueta da reparacao
+- a etiqueta inclui QR code
+- o tamanho da etiqueta depende da configuracao guardada na empresa
+
+### PDFs disponiveis
+
+Se o plano permitir PDF:
+
+- `Imprimir`: PDF da reparacao
+- `Procedimentos`: PDF tecnico com a lista de procedimentos
+
+Os PDFs usam os dados da empresa, do cliente e da reparacao. O PDF da reparacao pode incluir a assinatura do cliente nos termos.
+
+## 14. Procedimentos
+
+Na secao `Procedimentos` pode:
+
+1. registar um novo procedimento
+2. editar um procedimento existente
+3. apagar procedimentos seus
+4. ver historico de edicoes
+
+Os administradores podem apagar qualquer procedimento. Utilizadores normais so podem apagar os seus.
+
+### Comunicar um procedimento ao cliente
+
+Em cada procedimento, quando o plano o permite, pode:
+
+- enviar email ao cliente com o procedimento e o PDF de procedimentos
+- enviar mensagem por WhatsApp, se houver telefone e a funcionalidade estiver ativa
+
+Quando um procedimento e comunicado por email:
+
+- o campo `Cliente avisado` fica marcado nesse procedimento
+
+## 15. Anexos
+
+Se o plano incluir anexos, a reparacao passa a ter uma secao `Anexos`.
+
+### O que pode fazer
+
+- adicionar ficheiros
+- abrir ficheiros
+- apagar ficheiros
+
+### Regras
+
+- as imagens sao comprimidas antes do envio
+- o limite total por upload e `2 MB`
+- administradores podem apagar qualquer anexo
+- utilizadores normais so podem apagar anexos enviados por si
+
+## 16. Comunicacao com o cliente
+
+### Email
+
+Se o plano incluir email:
+
+- pode enviar email geral da reparacao com o PDF em anexo
+- pode enviar aviso de `reparacao pronta`
+- pode enviar procedimentos
+- pode enviar orcamentos
+
+Todos os emails enviados e recebidos ficam associados a reparacao.
+
+### Respostas do cliente
+
+As respostas por email entram novamente na reparacao e aparecem na secao `Emails`.
+
+### WhatsApp
+
+Se o plano incluir WhatsApp e existir telefone do cliente:
+
+- pode abrir o modal de mensagem a partir de um procedimento
+
+## 17. Portal publico da reparacao
+
+Se o plano incluir `Portal do cliente`, cada reparacao pode ter uma pagina publica.
+
+### Como funciona
+
+1. A equipa gera o link publico a partir da reparacao.
+2. O cliente abre esse link.
+3. Para ver os dados, valida:
+   - numero da reparacao
+   - email do cliente
+
+### O que o cliente pode ver
+
+- estado da reparacao
+- agendamento, se existir
+- dados principais do equipamento
+- procedimentos
+- orcamentos
+- anexos
+- termos e condicoes da empresa
+
+### O que o cliente pode fazer
+
+- aceitar um orcamento
+- assinar os termos
+
+### Quando a reparacao esta `Pronta` ou `Terminada`
+
+A pagina publica mostra um destaque proprio:
+
+- `Pronta`: informa que esta pronta para levantamento
+- `Terminada`: mostra tambem fatura e data de entrega
+
+## 18. Orcamentos
+
+Os orcamentos vivem em `Orcamentos` e tambem podem ser criados a partir da reparacao.
+
+### Criar orcamento manualmente
+
+1. Abra `Novo orcamento`.
+2. Escolha a reparacao.
+3. Escolha o estado inicial.
+4. Grave.
+
+### Editar o orcamento
+
+No detalhe do orcamento pode:
+
+- mudar o estado
+- adicionar itens
+- editar itens
+- remover itens
+- imprimir PDF
+- duplicar orcamento
+- enviar por email
+- apagar orcamento
+
+### Envio por email
+
+Quando um orcamento e enviado por email:
+
+- o PDF segue em anexo
+- a app pode atualizar automaticamente o estado para `enviado para o cliente`
+
+### Aceitacao pelo cliente
+
+Se existir portal publico:
+
+- o cliente pode aceitar o orcamento na pagina publica
+- a app regista a aceitacao e envia emails de confirmacao
+
+## 19. Agendamentos
+
+Se o plano incluir agendamentos, aparece o menu `Agendamentos`.
+
+### Criar reparacao agendada
+
+Pode criar de tres formas:
+
+- no calendario
+- em `Nova reparacao` com modo agendado
+- a partir da ficha do cliente
+
+### Como funciona
+
+- a reparacao fica com `scheduled_at`
+- entra no calendario
+- aparece na lista lateral de proximos agendamentos
+- nao entra no fluxo normal de reparacoes enquanto estiver agendada
+
+### Reagendar
+
+Na ficha da reparacao agendada pode:
+
+1. alterar data e hora
+2. gravar
+
+A app regista automaticamente um procedimento com a alteracao.
+
+### Sair do agendamento
+
+Ao alterar o estado de uma reparacao agendada:
+
+- a reparacao sai dos agendamentos
+- entra no fluxo normal para intervencao
+
+## 20. Inventario de modelos e servicos
+
+Se o plano incluir inventario, aparece o menu `Inventario`.
+
+### Modelos
+
+Use `Inventario > Modelos` para:
+
+- criar modelos
+- editar modelos
+- apagar modelos sem ligacoes
+
+Um modelo nao pode ser apagado se estiver ligado a servicos.
+
+### Servicos pre-definidos
+
+Use `Inventario > Servicos` para:
+
+- criar um servico
+- editar descricao
+- associar modelos a esse servico
+
+### Ligacao servico \+ modelo
+
+Na ficha de um servico pode ligar um modelo e definir:
+
+- `Preco`
+- `Descricao`
+- `Flag notes`
+
+Esta ligacao e a base do comportamento inteligente na nova reparacao:
+
+- o preco pode gerar orcamento automatico
+- as `flag notes` aparecem como aviso ao tecnico
+
+Tambem pode criar um modelo rapido sem sair da ficha do servico.
+
+## 21. Eliminacao de dados
+
+### Apagar reparacao
+
+Na ficha da reparacao existe uma `Danger zone` para eliminar a reparacao e os seus dados associados.
+
+### Apagar empresa
+
+Em `Perfil`, um administrador pode apagar a empresa. Esta acao:
+
+- e irreversivel
+- remove utilizadores, reparacoes, orcamentos, clientes, anexos, inventario e restantes registos associados
+- termina a propria sessao
+
+## 22. Fluxo recomendado de utilizacao
+
+Para usar o QUEUE com menos friccao, o fluxo mais natural e:
+
+1. configurar empresa, logo e termos
+2. criar utilizadores extra, se necessario
+3. criar clientes
+4. preparar inventario de modelos e servicos
+5. criar reparacao
+6. deixar a app sugerir servico/preco quando houver inventario
+7. gerar orcamento automatico ou manual
+8. comunicar com o cliente por email / WhatsApp
+9. acompanhar procedimentos
+10. usar portal publico para aceitacao e assinatura
+11. marcar `Pronto`
+12. finalizar em `Terminado` com fatura e data de entrega
+
+## 23. Resumo rapido das automatizacoes mais importantes
+
+- historico automatico por serial / IMEI
+- sugestoes de equipamento e servico com base no inventario
+- orcamento automatico a partir de preco do servico ligado ao modelo
+- aviso tecnico automatico por `flag notes`
+- mudanca assistida para `Pronto`
+- obrigatoriedade de fatura \+ entrega em `Terminado`
+- assinatura publica dos termos
+- aceitacao publica de orcamentos
+- registo automatico de certos eventos em procedimentos
+- historico de emails enviados e recebidos na reparacao
