@@ -1,13 +1,16 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "Google",
-  "theme": "almond",
+  "name": "QUEUE",
+  "theme": "maple",
   "colors": {
-    "primary": "#ef7025",
-    "light": "#eec9bc",
-    "dark": "#4fa1ab"
+    "primary": "#000000",
+    "light": "#8d8d8d",
+    "dark": "#101010"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/images/icon-white.svg",
+    "dark": "/images/icon.svg"
+  },
   "navigation": {
     "tabs": [
       {
@@ -74,5 +77,28 @@
         ]
       }
     ]
+  },
+  "description": "Documentação para o QUEUE - Gestão de Reparações",
+  "logo": {
+    "light": "/images/logo-white.png",
+    "dark": "/images/logo.png"
+  },
+  "background": {
+    "color": {
+      "dark": "#363636"
+    }
+  },
+  "appearance": {
+    "default": "light",
+    "strict": true
+  },
+  "fonts": {
+    "family": "Inter"
+  },
+  "footer": {
+    "socials": {
+      "instagram": "https://www.instagram.com/queue_pt",
+      "facebook": "https://www.facebook.com/profile.php?id=61591802150156"
+    }
   }
 }
