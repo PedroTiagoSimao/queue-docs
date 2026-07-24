@@ -14,28 +14,27 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Getting Started",
+        "tab": "Começar",
         "groups": [
           {
-            "group": "Welcome",
+            "group": "Bem Vindo",
             "pages": [
-              "introduction",
-              "quickstart",
-              "account-setup"
+              "intro",
+              "inicio-rapido",
+              "definicoes-de-conta"
             ]
           },
           {
-            "group": "Core Concepts",
+            "group": "Conceitos Fundamentais",
             "pages": [
-              "concepts/overview",
-              "concepts/key-features",
-              "concepts/terminology"
+              "conceitos/visao-geral",
+              "conceitos/caracteristicas"
             ]
           }
         ]
       },
       {
-        "tab": "Using the App",
+        "tab": "Utilizar a App",
         "groups": [
           {
             "group": "Guides",
@@ -64,7 +63,7 @@
         ]
       },
       {
-        "tab": "Support",
+        "tab": "Apoio",
         "groups": [
           {
             "group": "Help",
