@@ -34,12 +34,7 @@
               "guides/agendamentos",
               "guides/inventario-de-servicos"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Utilizar a App",
-        "groups": [
+          },
           {
             "group": "Conta & Empresa",
             "pages": [
@@ -53,15 +48,15 @@
               "integracoes/visao-geral",
               "integracoes/fact.pt"
             ]
+          },
+          {
+            "group": "Apoio",
+            "pages": [
+              "support/faq",
+              "apoio/resolucao-de-problemas",
+              "support/contact"
+            ]
           }
-        ]
-      },
-      {
-        "tab": "Apoio",
-        "pages": [
-          "support/faq",
-          "apoio/resolucao-de-problemas",
-          "support/contact"
         ]
       }
     ]
