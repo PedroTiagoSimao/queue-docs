@@ -1,0 +1,220 @@
+---
+title: "Reparações"
+---
+
+## Criar uma reparacao
+
+Pagina: `Reparacoes > Nova reparacao`.
+
+### Passo a passo base
+
+1. Escolha o cliente.
+2. Defina o estado inicial.
+3. Indique o equipamento.
+4. Indique o servico.
+5. Preencha serial/IMEI, se existir.
+6. Preencha codigo/senha, se aplicavel.
+7. Escolha o estado de garantia.
+8. Adicione acessorios.
+9. Descreva o problema.
+10. Adicione anexos, se necessario.
+11. Grave a reparacao.
+
+### O que a app ajuda automaticamente
+
+#### Sugestoes por inventario
+
+Se o inventario estiver ativo:
+
+- o campo `Equipamento` sugere modelos existentes
+- o campo `Servico` sugere servicos ligados ao modelo escolhido
+
+#### Historico por serial / IMEI
+
+Ao escrever um serial ou IMEI ja usado antes, a app mostra um popup com:
+
+- reparacoes anteriores
+- cliente
+- data
+- servico
+- equipamento
+
+Isto ajuda a evitar duplicados e a perceber historico tecnico.
+
+#### Orcamento automatico
+
+Se selecionar um modelo \+ servico que tenham um preco associado no inventario:
+
+- a app pode propor a criacao automatica de um orcamento
+- se existir email valido do cliente e o plano permitir email, pode criar e enviar o orcamento automaticamente
+- se estiver a criar uma reparacao agendada, o orcamento pode ser criado mas ficar por enviar ate a reparacao sair do agendamento
+
+#### Avisos tecnicos pre-definidos
+
+Se a ligacao entre servico e modelo tiver `flag notes`, a app mostra essa nota em destaque durante a criacao da reparacao.
+
+Isto e util para alertas como:
+
+- riscos tecnicos
+- dependencias
+- observacoes obrigatorias
+- restricoes do modelo
+
+### Anexos na criacao
+
+- Pode anexar ficheiros logo ao criar a reparacao.
+- As imagens podem ser comprimidas.
+- O limite total por envio e `2 MB`.
+
+## Estados manuais e automaticos da reparacao
+
+### Estados manuais
+
+O estado da reparacao e alterado diretamente no detalhe da reparacao.
+
+Exemplos tipicos:
+
+- rececao
+- diagnostico
+- para intervencao
+- pronto
+- terminado
+
+### Comportamentos automaticos relevantes
+
+#### Quando muda para `Pronto`
+
+- a reparacao fica guardada com o novo estado
+- se houver email do cliente e o plano permitir email, a app abre o composer para avisar o cliente
+- se o email for enviado, fica tambem um procedimento registado a dizer que o cliente foi informado
+
+#### Quando muda para `Terminado`
+
+A app nao deixa concluir sem:
+
+- numero da fatura
+- data de entrega
+
+Ao escolher `Terminado`, abre um modal para preencher estes dados.
+
+#### Quando o cliente assina os termos
+
+Na pagina publica:
+
+- a assinatura fica guardada
+- a reparacao pode transitar automaticamente para `para-intervencao`, se esse estado existir
+
+#### Quando um orcamento e aceite publicamente
+
+- o orcamento aceite fica marcado
+- outros orcamentos da mesma reparacao podem ser rejeitados automaticamente
+- e criado um procedimento a registar a aceitacao
+- a reparacao pode mudar de estado se o estado de orcamento aceite tiver um estado de reparacao relacionado
+
+## Pagina de detalhe da reparacao
+
+Esta e a pagina central da operacao.
+
+### O que pode fazer aqui
+
+- editar dados da reparacao
+- alterar estado e garantia
+- ver QR code
+- imprimir etiqueta
+- imprimir PDF da reparacao
+- imprimir PDF de procedimentos
+- gerar ou abrir link publico
+- enviar email ao cliente
+- gerir procedimentos
+- gerir anexos
+- consultar historico de emails
+- apagar a reparacao
+
+### Etiquetas e QR code
+
+Se o plano permitir:
+
+- pode imprimir uma etiqueta da reparacao
+- a etiqueta inclui QR code
+- o tamanho da etiqueta depende da configuracao guardada na empresa
+
+### PDFs disponiveis
+
+Se o plano permitir PDF:
+
+- `Imprimir`: PDF da reparacao
+- `Procedimentos`: PDF tecnico com a lista de procedimentos
+
+Os PDFs usam os dados da empresa, do cliente e da reparacao. O PDF da reparacao pode incluir a assinatura do cliente nos termos.
+
+## Anexos
+
+Se o plano incluir anexos, a reparacao passa a ter uma secao `Anexos`.
+
+### O que pode fazer
+
+- adicionar ficheiros
+- abrir ficheiros
+- apagar ficheiros
+
+### Regras
+
+- as imagens sao comprimidas antes do envio
+- o limite total por upload e `2 MB`
+- administradores podem apagar qualquer anexo
+- utilizadores normais so podem apagar anexos enviados por si
+
+## Comunicacao com o cliente
+
+### Email
+
+Se o plano incluir email:
+
+- pode enviar email geral da reparacao com o PDF em anexo
+- pode enviar aviso de `reparacao pronta`
+- pode enviar procedimentos
+- pode enviar orcamentos
+
+Todos os emails enviados e recebidos ficam associados a reparacao.
+
+### Respostas do cliente
+
+As respostas por email entram novamente na reparacao e aparecem na secao `Emails`.
+
+### WhatsApp
+
+Se o plano incluir WhatsApp e existir telefone do cliente:
+
+- pode abrir o modal de mensagem a partir de um procedimento
+
+## Portal publico da reparacao
+
+### Como funciona
+
+1. A equipa gera o link publico a partir da reparacao.
+2. O cliente abre esse link.
+3. Para ver os dados, valida:
+   - numero da reparacao
+   - email do cliente
+
+### O que o cliente pode ver
+
+- estado da reparacao
+- agendamento, se existir
+- dados principais do equipamento
+- procedimentos
+- orcamentos
+- anexos
+- termos e condicoes da empresa
+
+### O que o cliente pode fazer
+
+- aceitar um orcamento
+- assinar os termos
+
+### Quando a reparacao esta `Pronta` ou `Terminada`
+
+A pagina publica mostra um destaque proprio:
+
+- `Pronta`: informa que esta pronta para levantamento
+- `Terminada`: mostra tambem fatura e data de entrega

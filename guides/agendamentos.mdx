@@ -1,0 +1,46 @@
+---
+title: "Agendamentos"
+---
+
+## Agendamentos
+
+### Criar reparacao agendada
+
+Pode criar de tres formas:
+
+- no calendario
+- em `Nova reparacao` com modo agendado
+- a partir da ficha do cliente
+
+### Como funciona
+
+- a reparacao fica com `scheduled_at`
+- entra no calendario
+- aparece na lista lateral de proximos agendamentos
+- nao entra no fluxo normal de reparacoes enquanto estiver agendada
+
+### Reagendar
+
+Na ficha da reparacao agendada pode:
+
+1. alterar data e hora
+2. gravar
+
+A app regista automaticamente um procedimento com a alteracao.
+
+### Sair do agendamento
+
+Ao alterar o estado de uma reparacao agendada:
+
+- a reparacao sai dos agendamentos
+- entra no fluxo normal para intervencao
+
+## 21. Eliminacao de dados
+
+### Apagar reparacao
+
+Na ficha da reparacao existe uma `Danger zone` para eliminar a reparacao e os seus dados associados.
+
+### Apagar empresa
+
+Em `Perfil`, um administrador pode apagar a empresa. Esta acao:

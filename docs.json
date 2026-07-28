@@ -21,14 +21,7 @@
             "pages": [
               "intro",
               "inicio-rapido",
-              "definicoes-de-conta"
-            ]
-          },
-          {
-            "group": "Conceitos Fundamentais",
-            "pages": [
-              "conceitos/visao-geral",
-              "conceitos/caracteristicas"
+              "conceitos/visao-geral"
             ]
           }
         ]
@@ -37,42 +30,38 @@
         "tab": "Utilizar a App",
         "groups": [
           {
-            "group": "Guides",
+            "group": "Guias",
             "pages": [
-              "guides/getting-around",
-              "guides/common-tasks",
-              "guides/notifications",
-              "guides/settings"
+              "guides/clientes",
+              "guides/reparacoes",
+              "guides/procedimentos",
+              "guides/orcamentos",
+              "guides/agendamentos",
+              "guides/inventario-de-servicos"
             ]
           },
           {
-            "group": "Account & Profile",
+            "group": "Conta & Empresa",
             "pages": [
-              "account/profile",
-              "account/security",
-              "account/billing"
+              "account/dados-da-empresa",
+              "guides/eliminacao-de-ados"
             ]
           },
           {
-            "group": "Integrations",
+            "group": "Integrações",
             "pages": [
-              "integrations/overview",
-              "integrations/connect"
+              "integracoes/visao-geral",
+              "integracoes/fact.pt"
             ]
           }
         ]
       },
       {
         "tab": "Apoio",
-        "groups": [
-          {
-            "group": "Help",
-            "pages": [
-              "support/faq",
-              "support/troubleshooting",
-              "support/contact"
-            ]
-          }
+        "pages": [
+          "support/faq",
+          "apoio/resolucao-de-problemas",
+          "support/contact"
         ]
       }
     ]

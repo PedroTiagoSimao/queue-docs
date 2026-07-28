@@ -1,12 +1,8 @@
 ---
-title: "Configuração de perfil da empresa"
-sidebarTitle: "Definições da empresa"
-description: "Configure o perfil da empresa, termo e utilizadores"
+title: "Dados da Empresa"
 ---
 
 ## 1. Como configurar a empresa
-
-Tudo isto e gerido em `Perfil`, na secao `Empresa`.
 
 ### Dados da empresa
 
@@ -77,6 +73,77 @@ Na tabela de utilizadores e possivel:
 - A app mostra o consumo atual, por exemplo `X / Y utilizadores extra usados`.
 - O primeiro utilizador da empresa nao conta como utilizador extra; o limite aplica-se aos adicionais.
 
-## Está tudo pronto
+## 4. Subscricoes disponiveis e como ativar
 
-A sua conta já está configurada e pronta a utilizar.
+Na pagina `Perfil > Gerir subscricao` ou diretamente em `/billing`, a app mostra:
+
+- plano atual
+- estado da subscricao
+- ultimo pagamento
+- proximo pagamento
+- ultimo evento de cobranca
+
+### Planos apresentados na UI
+
+#### Starter
+
+- 1 utilizador extra
+- etiquetas
+- documentos PDF
+- branding
+- suporte tecnico
+
+#### Base
+
+- ate 5 utilizadores extra
+- etiquetas
+- documentos PDF
+- branding
+- envio de email integrado
+- gestao de anexos
+- servicos pre-definidos
+- suporte tecnico
+
+#### Pro
+
+- ate 5 utilizadores extra
+- etiquetas
+- documentos PDF
+- branding
+- envio de email integrado
+- gestao de anexos
+- servicos pre-definidos
+- agendamento
+- integracao com faturacao
+- envio de SMS/WhatsApp
+- formacao
+- suporte prioritario
+
+### Como ativar um plano
+
+1. Entre em `Billing`.
+2. Escolha o plano pretendido.
+3. Clique em `Ativar plano` ou `Continuar para pagamento`.
+4. Conclua o checkout Stripe.
+5. Depois da confirmacao da Stripe, o plano fica ativo.
+
+Notas importantes:
+
+- Durante o trial, pode antecipar a subscricao a qualquer momento.
+- Se o trial expirar, a app pode bloquear acesso ate existir plano ativo.
+- Se a empresa tiver acesso vitalicio/manual, a pagina de billing fica apenas informativa e sem selecao de planos.
+
+## 5. O que aparece ou nao consoante o plano
+
+A app ativa ou esconde funcionalidades consoante a subscricao:
+
+- `Etiquetas`
+- `PDF`
+- `Portal do cliente`
+- `Email`
+- `Anexos`
+- `WhatsApp`
+- `Inventario`
+- `Agendamentos`
+
+Na pratica, isto afeta o menu lateral e tambem botoes dentro das paginas.
