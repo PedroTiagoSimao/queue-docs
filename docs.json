@@ -33,21 +33,24 @@
               "guides/orcamentos",
               "guides/agendamentos",
               "guides/inventario-de-servicos"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Conta & Empresa",
             "pages": [
               "account/dados-da-empresa",
               "guides/eliminacao-de-ados"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Integrações",
             "pages": [
               "integracoes/visao-geral",
               "integracoes/fact.pt"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Apoio",
@@ -55,7 +58,8 @@
               "support/faq",
               "apoio/resolucao-de-problemas",
               "support/contact"
-            ]
+            ],
+            "expanded": true
           }
         ]
       }
