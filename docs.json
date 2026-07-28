@@ -23,12 +23,7 @@
               "inicio-rapido",
               "conceitos/visao-geral"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Utilizar a App",
-        "groups": [
+          },
           {
             "group": "Guias",
             "pages": [
@@ -39,7 +34,12 @@
               "guides/agendamentos",
               "guides/inventario-de-servicos"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Utilizar a App",
+        "groups": [
           {
             "group": "Conta & Empresa",
             "pages": [
