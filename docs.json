@@ -21,18 +21,20 @@
             "pages": [
               "intro",
               "inicio-rapido",
-              "conceitos/visao-geral"
+              "visao-geral"
             ]
           },
           {
             "group": "Guias",
             "pages": [
-              "guides/clientes",
-              "guides/reparacoes",
-              "guides/procedimentos",
-              "guides/orcamentos",
-              "guides/agendamentos",
-              "guides/inventario-de-servicos"
+              "guias/clientes",
+              "guias/reparacoes",
+              "guias/procedimentos",
+              "guias/orcamentos",
+              "guias/agendamentos",
+              "guias/inventario-de-servicos",
+              "guias/estados",
+              "guias/pagina-de-cliente"
             ],
             "expanded": true
           },

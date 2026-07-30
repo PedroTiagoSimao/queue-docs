@@ -1,0 +1,71 @@
+---
+title: "Estados"
+sidebarTitle: "Estados"
+---
+
+Os estados são uma das funcionalidades mais importantes do QUEUE porque permitem ter uma noção rápida da evolução de uma reparação.
+
+Existem **Estados** diferenciados para **Reparações**, **Orçamentos** e **Garantias** no entanto alguns destes influenciam outros e despoletam acções automáticas.
+
+# Estados das Reparações
+
+Atualmente existem 12 estados para as reparações
+
+| Nome |
+| --- |
+| [Aberto](#aberto) |
+| Agendado |
+| Aguarda componentes |
+| Aguarda resposta do cliente |
+| Cliente respondeu |
+| Em reparação |
+| Orçamento aceite |
+| Orçamento rejeitado |
+| Para intervenção |
+| Pronto |
+| Sem reparação |
+| Terminado |
+
+## Aberto
+
+Este é o estado inicial de uma reparação não agendada. Significa que a reparação foi inserida e aguarda novas acções como a aceitação dos termos e condições por parte do cliente na [página de cliente](guias/pagina-de-cliente).
+
+## Agendado
+
+Estado em que fica uma reparação depois de ser agendada. Este é um estado especial, esconde a reparação da lista de reparações, mantendo-a visiviel apenas na página dos [Agendamentos](/guias/agendamentos). Ao alterar o estado para qualquer outro, a reparação passa a listar na seção de [Reparações](/guias/reparacoes).
+
+## Aguarda componentes
+
+Aguarda componentes é um estado meramente informativo.
+
+## Aguarda resposta do cliente
+
+O estado Aguarda resposta do cliente, como todos os outros, pode ser atribuido manualmente a qualquer reparação, estando no entanto ligado aos [Orçamentos](/guias/orcamentos). Quando um orçamento é enviado por email para o cliente pela plataforma, este estado é atribuido automáticamente à reparação.
+
+## Cliente respondeu
+
+Quando um cliente responde a um dos emails enviados pelo QUEUE, a reparação assume este estado, dando ao utilizador uma visão mais clara das respostas dos clientes.
+
+## Em reparação
+
+Em reparação é um estado meramente informativo
+
+## Orçamento aceite ou Orçamento rejeitado
+
+Orçamento aceite e Orçamento rejeitado são dois estados que além de poderem ser atribuidos manualmente a qualquer reparação, são também os estados assumidos automáticamente quando o cliente aceita ou rejeita o orçamento através da [página de cliente](/guias/pagina-de-cliente).
+
+## Para intervenção
+
+Depois do cliente assinar os termos e condições, a reparação assume este estado para que a intervenção no equipamento possa ser inicidada.
+
+## Pronto
+
+Ao atibuir este estado a uma reparação, o QUEUE dá ao utilizador a hipotese de notificar imediamente o utilizador por email.
+
+## Sem reparação
+
+Sem reparação é um estado meramente informativo
+
+## Terminado
+
+Depois de entregue, o utilizador deve atribuir este estado à reparação, colocar a data de entrega e o número da fatura gerada por esta serviço.
